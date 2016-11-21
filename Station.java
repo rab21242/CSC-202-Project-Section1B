@@ -50,6 +50,40 @@ public class Station
 		return(slots.length);
 	}//end getNumSlots method
 	
+	public int getSlotSerialNum(int location)
+	/*
+	 * 	location - location in the array to check
+	 */
+	{
+		if(location >= 0 && location < slots.length)
+		{
+			return(slots[location].getSerialNum());
+		}
+		else
+		{
+			System.out.println("Location out of array bounds. "
+					+ "Returning int 0.");
+			return(0);
+		}
+	}//end getSlotSerialNum
+	
+	public double getSlotWeight(int location)
+	/*
+	 * 	location - location in the array to check
+	 */
+	{
+		if(location >= 0 && location < slots.length)
+		{
+			return(slots[location].getWeight());
+		}
+		else
+		{
+			System.out.println("Location out of array bounds. "
+					+ "Returning double 0.0.");
+			return(0.0);
+		}
+	}//end getSlotWeight
+	
 	public boolean getSlotIsFull(int location)
 	/*
 	 * 	location - location in the array to check
@@ -64,38 +98,6 @@ public class Station
 	}//end getStationIsFull method
 	
 /************************* PROBLEM SPECIFIC METHODS ************************/
-	
-	public void fillNextSlot(int sn, double w)
-	/*
-	 * 		sn - item serial number
-	 * 		w - item weight
-	 */
-	{
-		if(stationIsFull == false)
-		{
-			for(int i = 0; i < slots.length; i++)
-			{
-				// check if this slot is full
-				if(slotIsFull[i] == false)
-				{
-					// if slot is not full
-					slots[i] = new Item(sn, w);
-					slotIsFull[i] = true;
-					testStationIsFull();
-					i = slots.length;
-				}
-				else
-				{
-					// if slot is full, inform the user
-					System.out.println("Slot " + i + " is full.");
-				}// end check if slot is full
-			}
-		}//end if(stationIsFull == false)
-		else
-		{
-			System.out.println("Station cannot hold any more items.");
-		}
-	}//end fillSlot method
 	
 	private void testStationIsFull()
 	{
@@ -118,5 +120,49 @@ public class Station
 			stationIsFull = true;
 		}
 	}//end testStationIsFull method
+	
+	public void fillNextSlot(int sn, double w)
+	/*
+	 * 		sn - item serial number
+	 * 		w - item weight
+	 */
+	{
+		if(stationIsFull == false)
+		{
+			for(int i = 0; i < slots.length; i++)
+			{
+				// check if this slot is full
+				if(slotIsFull[i] == false)
+				{
+					// if slot is not full
+					slots[i] = new Item(sn, w);
+					slotIsFull[i] = true;
+					testStationIsFull();
+					
+					// exit the for loop
+					i = slots.length;
+				}
+				else
+				{
+					// if slot is full, inform the user
+					System.out.println("Slot " + i + " is full.");
+				}//end check if slot is full
+			}
+		}//end if(stationIsFull == false)
+		else
+		{
+			System.out.println(name + " cannot hold any more items.");
+		}
+	}//end fillSlot method
+	
+	public void unloadSlot(int location)
+	/*
+	 * 	location - location in the array to check
+	 */
+	{
+		slots[location] = new Item();
+		slotIsFull[location] = false;
+		testStationIsFull();
+	}//end unloadSlot method
 	
 }//end Station class
