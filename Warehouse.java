@@ -11,9 +11,12 @@ import java.util.Scanner;
 
 public class Warehouse
 {
+	// SCANNER
+	Scanner input = new Scanner(System.in);
+	
 	// ATTRIBUTES
-	private Robot robot;
-	private Station[] stations;
+	private Station[] stations;	// stations in the warehouse
+	private Robot robot;		// a robot to move items in the warehouse
 	
 	// CONSTANT ATTRIBUTES
 	private static final int PICKUP_STATION = 0;
@@ -27,8 +30,6 @@ public class Warehouse
 	
 	public Warehouse()
 	{
-		robot = new Robot();
-		
 		// create and initialize array of stations
 		stations = new Station[13];
 		for(int i = 0; i < stations.length; i++)
@@ -49,6 +50,10 @@ public class Warehouse
 					stations[i] = new Station("Station 14", 4);
 			}
 		}//end for loop
+		
+		// create robot with a beginning position at the pickup station
+		robot = new Robot(PICKUP_STATION);
+		
 	}//end Warehouse constructor
 	
 /******************************* RUN METHOD ********************************/
@@ -66,7 +71,6 @@ public class Warehouse
 	
 	private void unloadTruck()
 	{
-		Scanner input = new Scanner(System.in);
 		int itemsOnTruck = 0;
 		Item tmpItem = new Item();
 		
@@ -84,12 +88,13 @@ public class Warehouse
 			tmpItem.inputItemDetails();
 			stations[PICKUP_STATION].fillNextSlot(
 					tmpItem.getSerialNum(), tmpItem.getWeight());
-		}//end 	
+		}//end for loop
+		
 	}//end unloadTruck method
 	
 	private void storeAllItems()
 	{
-		for(int i = stations[PICKUP_STATION].getNumSlots(); i >= 0; i--)
+		for(int i = (stations[PICKUP_STATION].getNumSlots() - 1); i >= 0; i--)
 		{
 			storeOneItem(i);
 		}//end for loop
@@ -107,20 +112,193 @@ public class Warehouse
 					   stations[PICKUP_STATION].getSlotWeight(location));
 		stations[PICKUP_STATION].unloadSlot(location);
 		
-		// place item in correct station
+		// find correct station
 		stationNum = findCorrectStation();
+		
+		// place item in correct station
+		storeItemInStation(stationNum);
+	}//end storeOneItem method
+	
+	private void storeItemInStation(int stationNum)
+	/*
+	 * 		station - station to store the item in
+	 */
+	{
+		int aisle = 0;
+		
+		// determine aisle to move robot to
+		if(stationNum%2 == 0)
+		{
+			aisle = (stationNum/2);
+		}
+		else
+		{
+			aisle = ((stationNum+1)/2);
+		}
+		
+		// move robot to the correct aisle
+		for(int i = 0; i < aisle; i++)
+		{
+			robot.moveForward( ((stations.length-1)/2) );
+		}//end of for loop
+		
+		// store the item in the station
 		stations[stationNum].fillNextSlot(robot.getItemSerialNum(), 
 										  robot.getItemWeight());
 		robot.dropItem();
-	}//end storeOneItem method
+		
+		// return robot to pickup station
+		for(int i = aisle; i > 0; i--)
+		{
+			robot.moveBackward(0);
+		}//end of for loop
+		
+	}//end storeItemInStation method
 	
 	private int findCorrectStation()
 	{
+		// constants
+		final int SPECIAL_ITEM = 1;
+		
+		// variables
+		int specialItem = -1;
 		int correctStation = -1;	// initialized to an invalid value
 		
+		// determine if the item is a special item
+		System.out.print(
+				"Enter " + SPECIAL_ITEM + " if this item is a special item,"
+				+ " or any integer if it is not:");
+		specialItem = input.nextInt();
 		
+		if(specialItem == SPECIAL_ITEM)
+		{
+			correctStation = findCorrectStationForSpecialItem();
+		}
+		else
+		{
+			correctStation = findCorrectStationForRegularItem();
+		}
 		
+		// return the correct station for storage
 		return(correctStation);
 	}//end findCorrectStation
+	
+	private int findCorrectStationForRegularItem()
+	{
+		int station = -1;	// initialize to invalid value
+		
+		for(int i = 1; i < stations.length; i++)
+		{
+			// exclude the special storage stations
+			if(i != FREEZER 
+					&& i != SPECIAL_DELIVERY_1 
+					&& i != SPECIAL_DELIVERY_2 
+					&& i != IMMEDIATE_DELIVERY 
+					&& i != FIVE_DAY_STORAGE)
+			{
+
+				// if the station is NOT one of the special storage units
+				// test if the station is already full
+				if(stations[i].getStationIsFull() == false)
+				{
+					// if the station is NOT full
+					// check if there is only one slot remaining
+					if(stations[i].getSlotIsFull(stations[i].getNumSlots()-2) 
+							== true)
+					{
+						// the item weight needs to be checked
+						if(robot.getItemWeight() < 50)
+						{
+							// if the item weight is below 50, 
+							// the item can be placed here
+							// pass the station number
+							station = i;
+							// exit the loop
+							i = stations.length;
+						}
+						else
+						{
+							// if the item weight is above 50, 
+							// the item cannot be placed here 
+							// and another station must be checked
+						}//end item weight check if
+					}
+					else
+					{
+						// there is no potential conflict,
+						// pass the station number
+						station = i;
+						// exit the loop
+						i = stations.length;
+					}//end last slot is only slot left if
+				}//end station is full check if
+			}//end special storage unit check if
+		}//end of for loop
+		
+		return(station);
+	}//end findCorrectStationForRegularItem method
+	
+	private int findCorrectStationForSpecialItem()
+	{
+		// constants
+		final int FREEZER_ITEM = 1;
+		final int SPECIAL_DELIVERY_ITEM = 2;
+		final int IMMEDIATE_DELIVERY_ITEM = 3;
+		final int FIVE_DAY_STORAGE_ITEM = 4;
+		
+		// variables
+		int specialItem = -1;	// initialize to invalid value
+		int station = -1;		// initialize to invalid value
+		
+		do{
+			// display directory of special items
+			System.out.println("SPECIAL ITEM DIRECTORY\n"
+					+ FREEZER_ITEM + " - Freezer Item\n"
+					+ SPECIAL_DELIVERY_ITEM + " - Special Delivery\n"
+					+ IMMEDIATE_DELIVERY_ITEM + " - Immediate Delivery\n"
+					+ FIVE_DAY_STORAGE_ITEM + " - Five Day Storage\n");
+			
+			// ask user to input special item number
+			System.out.print("Enter the type of special item from the directory above: ");
+			specialItem = input.nextInt();
+			
+		}while(specialItem != FREEZER_ITEM 
+				&& specialItem != SPECIAL_DELIVERY_ITEM 
+				&& specialItem != IMMEDIATE_DELIVERY_ITEM 
+				&& specialItem != FIVE_DAY_STORAGE_ITEM);
+		
+		// determine correct station
+		if(specialItem == FREEZER_ITEM)
+		{
+			station = FREEZER;
+		}
+		else if(specialItem == SPECIAL_DELIVERY_ITEM)
+		{
+			if(stations[SPECIAL_DELIVERY_1].getStationIsFull() == false)
+			{
+				station = SPECIAL_DELIVERY_1;
+			}
+			else
+			{
+				station = SPECIAL_DELIVERY_2;
+			}
+		}
+		else if(specialItem == IMMEDIATE_DELIVERY_ITEM)
+		{
+			station = IMMEDIATE_DELIVERY;
+		}
+		else if(specialItem == FIVE_DAY_STORAGE_ITEM)
+		{
+			station = FIVE_DAY_STORAGE;
+		}
+		else
+		{
+			System.out.println("Special item number " + specialItem + " not recognized."
+					+ " No change made.");
+		}
+		
+		// return correct station number
+		return(station);
+	}//end findCorrectStationForSpecialItem method
 	
 }//end Warehouse class
