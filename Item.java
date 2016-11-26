@@ -11,6 +11,9 @@ import java.util.Scanner;
 
 public class Item
 {
+	// SCANNER
+	Scanner input = new Scanner(System.in);
+	
 	// ATTRIBUTES
 	private int serialNum;	// 5-digit serial number of the item
 	private double weight;	// weight of the item in kg
@@ -55,14 +58,13 @@ public class Item
 	
 	private int inputValidSerialNum()
 	{
-		Scanner input = new Scanner(System.in);	// create a new Scanner
 		int sn = 0;	// to hold values
 		
 		do	// loop until input is between 10000 and 99999
 		{
 			// input the serial number
 			System.out.print("Input 5-digit serial number: ");
-			serialNum = input.nextInt();
+			sn = input.nextInt();
 			
 			if(sn < 10000 || sn > 99999)
 			{
@@ -72,22 +74,18 @@ public class Item
 			}
 		}while(sn < 10000 || sn > 99999);
 		
-		// close input stream
-		input.close();
-		
 		// return the valid sn
 		return(sn);
 	}//end inputValidSerialNum method
 	
 	private double inputValidWeight()
 	{
-		Scanner input = new Scanner(System.in);	// create a new Scanner
 		double w = 0.0;	// to hold values
 		
 		do	// loop until the input is > 0.0
 		{
 			// input the weight
-			System.out.print("\nInput weight (kg): ");
+			System.out.print("Input weight (kg): ");
 			w = input.nextDouble();
 			
 			if(w <= 0.0)
@@ -97,9 +95,6 @@ public class Item
 						+ " (your item cannot weigh nothing).");
 			}
 		}while(w <= 0.0);
-		
-		// close input stream
-		input.close();
 		
 		// return the valid w
 		return(w);

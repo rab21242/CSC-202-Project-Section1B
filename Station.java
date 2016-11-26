@@ -61,7 +61,8 @@ public class Station
 		}
 		else
 		{
-			System.out.println("Location out of array bounds. "
+			System.out.println("ERROR IN " + name
+					+ ": Location out of array bounds. "
 					+ "Returning int 0.");
 			return(0);
 		}
@@ -78,7 +79,8 @@ public class Station
 		}
 		else
 		{
-			System.out.println("Location out of array bounds. "
+			System.out.println("ERROR IN " + name
+					+ ": Location out of array bounds. "
 					+ "Returning double 0.0.");
 			return(0.0);
 		}
@@ -139,13 +141,17 @@ public class Station
 					slotIsFull[i] = true;
 					testStationIsFull();
 					
+					// inform the user
+					System.out.println("FILLING " + name 
+							+ " Slot " + i + " ...");
+					
 					// exit the for loop
 					i = slots.length;
 				}
 				else
 				{
 					// if slot is full, inform the user
-					System.out.println("Slot " + i + " is full.");
+					System.out.println(name + " Slot " + i + " is full.");
 				}//end check if slot is full
 			}
 		}//end if(stationIsFull == false)
@@ -160,9 +166,19 @@ public class Station
 	 * 	location - location in the array to check
 	 */
 	{
-		slots[location] = new Item();
-		slotIsFull[location] = false;
-		testStationIsFull();
+		if(location >= 0 && location < slots.length)
+		{
+			slots[location] = new Item();
+			slotIsFull[location] = false;
+			testStationIsFull();
+		}
+		else
+		{
+			// inform user of error
+			System.out.println("ERROR IN " + name
+					+ ": Location " + location 
+					+ " out of slots array bounds.");
+		}
 	}//end unloadSlot method
 	
 }//end Station class
