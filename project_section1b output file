@@ -1,0 +1,308 @@
+How many items need to be unloaded?: 20
+Input 5-digit serial number: 11111
+Input weight (kg): 11
+FILLING Pickup Station Slot 0 ...
+Input 5-digit serial number: 33333
+Input weight (kg): 33
+FILLING Pickup Station Slot 1 ...
+Input 5-digit serial number: 55555
+Input weight (kg): 55
+FILLING Pickup Station Slot 2 ...
+Input 5-digit serial number: 77777
+Input weight (kg): 77
+FILLING Pickup Station Slot 3 ...
+Input 5-digit serial number: 99999
+Input weight (kg): 99
+FILLING Pickup Station Slot 4 ...
+Input 5-digit serial number: 12345
+Input weight (kg): 12
+FILLING Pickup Station Slot 5 ...
+Input 5-digit serial number: 34567
+Input weight (kg): 32
+FILLING Pickup Station Slot 6 ...
+Input 5-digit serial number: 56789
+Input weight (kg): 12
+FILLING Pickup Station Slot 7 ...
+Input 5-digit serial number: 98765
+Input weight (kg): 67
+FILLING Pickup Station Slot 8 ...
+Input 5-digit serial number: 76543
+Input weight (kg): 33
+FILLING Pickup Station Slot 9 ...
+Input 5-digit serial number: 22222
+Input weight (kg): 22
+FILLING Pickup Station Slot 10 ...
+Input 5-digit serial number: 44444
+Input weight (kg): 44
+FILLING Pickup Station Slot 11 ...
+Input 5-digit serial number: 66666
+Input weight (kg): 66
+FILLING Pickup Station Slot 12 ...
+Input 5-digit serial number: 88888
+Input weight (kg): 88
+FILLING Pickup Station Slot 13 ...
+Input 5-digit serial number: 23456
+Input weight (kg): 54
+FILLING Pickup Station Slot 14 ...
+Input 5-digit serial number: 45678
+Input weight (kg): 32
+FILLING Pickup Station Slot 15 ...
+Input 5-digit serial number: 13432
+Input weight (kg): 23
+FILLING Pickup Station Slot 16 ...
+Input 5-digit serial number: 76542
+Input weight (kg): 22
+FILLING Pickup Station Slot 17 ...
+Input 5-digit serial number: 15674
+Input weight (kg): 56
+FILLING Pickup Station Slot 18 ...
+Input 5-digit serial number: 99876
+Input weight (kg): 77
+FILLING Pickup Station Slot 19 ...
+
+The robot has picked up item #99876.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the LEFT.
+FILLING Station 2 Slot 0 ...
+The robot has dropped item #99876.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #15674.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the LEFT.
+FILLING Station 2 Slot 1 ...
+The robot has dropped item #15674.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #76542.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the LEFT.
+FILLING Station 2 Slot 2 ...
+The robot has dropped item #76542.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #13432.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the LEFT.
+FILLING Station 2 Slot 3 ...
+The robot has dropped item #13432.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #45678.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the LEFT.
+FILLING Station 2 Slot 4 ...
+The robot has dropped item #45678.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #23456.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the LEFT.
+FILLING Station 2 Slot 5 ...
+The robot has dropped item #23456.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #88888.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the LEFT.
+FILLING Station 2 Slot 6 ...
+The robot has dropped item #88888.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #66666.
+Enter 1 if this item is a special item, or any integer if it is not:0
+Station 2 has only one slot left. Item #66666 is too heavy for this slot.
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved FORWARD and is now in aisle 2.
+The robot has moved into the station on the LEFT.
+FILLING Station 4 Slot 0 ...
+The robot has dropped item #66666.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in aisle 1.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #44444.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the LEFT.
+FILLING Station 2 Slot 7 ...
+The robot has dropped item #44444.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #22222.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved FORWARD and is now in aisle 2.
+The robot has moved into the station on the LEFT.
+FILLING Station 4 Slot 1 ...
+The robot has dropped item #22222.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in aisle 1.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #76543.
+Enter 1 if this item is a special item, or any integer if it is not:1
+SPECIAL ITEM DIRECTORY
+1 - Freezer Item
+2 - Special Delivery
+3 - Immediate Delivery
+4 - Five Day Storage
+
+Enter the type of special item from the directory above: 1
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved FORWARD and is now in aisle 2.
+The robot has moved FORWARD and is now in aisle 3.
+The robot has moved into the station on the RIGHT.
+FILLING Station 5 Slot 0 ...
+The robot has dropped item #76543.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in aisle 2.
+The robot has moved BACKWARD and is now in aisle 1.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #98765.
+Enter 1 if this item is a special item, or any integer if it is not:1
+SPECIAL ITEM DIRECTORY
+1 - Freezer Item
+2 - Special Delivery
+3 - Immediate Delivery
+4 - Five Day Storage
+
+Enter the type of special item from the directory above: 2
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved FORWARD and is now in aisle 2.
+The robot has moved FORWARD and is now in aisle 3.
+The robot has moved FORWARD and is now in aisle 4.
+The robot has moved FORWARD and is now in aisle 5.
+The robot has moved into the station on the RIGHT.
+FILLING Station 9 Slot 0 ...
+The robot has dropped item #98765.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in aisle 4.
+The robot has moved BACKWARD and is now in aisle 3.
+The robot has moved BACKWARD and is now in aisle 2.
+The robot has moved BACKWARD and is now in aisle 1.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #56789.
+Enter 1 if this item is a special item, or any integer if it is not:1
+SPECIAL ITEM DIRECTORY
+1 - Freezer Item
+2 - Special Delivery
+3 - Immediate Delivery
+4 - Five Day Storage
+
+Enter the type of special item from the directory above: 3
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved FORWARD and is now in aisle 2.
+The robot has moved FORWARD and is now in aisle 3.
+The robot has moved FORWARD and is now in aisle 4.
+The robot has moved FORWARD and is now in aisle 5.
+The robot has moved FORWARD and is now in aisle 6.
+The robot has moved into the station on the RIGHT.
+FILLING Station 12 Slot 0 ...
+The robot has dropped item #56789.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in aisle 5.
+The robot has moved BACKWARD and is now in aisle 4.
+The robot has moved BACKWARD and is now in aisle 3.
+The robot has moved BACKWARD and is now in aisle 2.
+The robot has moved BACKWARD and is now in aisle 1.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #34567.
+Enter 1 if this item is a special item, or any integer if it is not:1
+SPECIAL ITEM DIRECTORY
+1 - Freezer Item
+2 - Special Delivery
+3 - Immediate Delivery
+4 - Five Day Storage
+
+Enter the type of special item from the directory above: 4
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved FORWARD and is now in aisle 2.
+The robot has moved FORWARD and is now in aisle 3.
+The robot has moved FORWARD and is now in aisle 4.
+The robot has moved FORWARD and is now in aisle 5.
+The robot has moved FORWARD and is now in aisle 6.
+The robot has moved into the station on the RIGHT.
+FILLING Station 14 Slot 0 ...
+The robot has dropped item #34567.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in aisle 5.
+The robot has moved BACKWARD and is now in aisle 4.
+The robot has moved BACKWARD and is now in aisle 3.
+The robot has moved BACKWARD and is now in aisle 2.
+The robot has moved BACKWARD and is now in aisle 1.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #12345.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the RIGHT.
+FILLING Station 1 Slot 0 ...
+The robot has dropped item #12345.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #99999.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the RIGHT.
+FILLING Station 1 Slot 1 ...
+The robot has dropped item #99999.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #77777.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the RIGHT.
+FILLING Station 1 Slot 2 ...
+The robot has dropped item #77777.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #55555.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the RIGHT.
+FILLING Station 1 Slot 3 ...
+The robot has dropped item #55555.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #33333.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the RIGHT.
+FILLING Station 1 Slot 4 ...
+The robot has dropped item #33333.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+The robot has picked up item #11111.
+Enter 1 if this item is a special item, or any integer if it is not:0
+The robot has moved FORWARD and is now in aisle 1.
+The robot has moved into the station on the RIGHT.
+FILLING Station 1 Slot 5 ...
+The robot has dropped item #11111.
+The robot has moved out of the station.
+The robot has moved BACKWARD and is now in the Pickup Station.
+
+ALL ITEMS HAVE BEEN STORED.

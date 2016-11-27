@@ -45,6 +45,11 @@ public class Station
 	
 /******************************* GET METHODS *******************************/
 	
+	public String getName()
+	{
+		return(name);
+	}//end getName
+	
 	public int getNumSlots()
 	{
 		return(slots.length);
@@ -147,13 +152,8 @@ public class Station
 					
 					// exit the for loop
 					i = slots.length;
-				}
-				else
-				{
-					// if slot is full, inform the user
-					System.out.println(name + " Slot " + i + " is full.");
 				}//end check if slot is full
-			}
+			}//end for loop
 		}//end if(stationIsFull == false)
 		else
 		{

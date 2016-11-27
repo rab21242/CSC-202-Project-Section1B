@@ -65,6 +65,9 @@ public class Warehouse
 		
 		// have the Robot store the items in the correct Station
 		storeAllItems();
+		
+		// inform the user that the program has ended
+		System.out.println("\nALL ITEMS HAVE BEEN STORED.");
 	}//end runWarehouse method
 	
 /************************* PROBLEM SPECIFIC METHODS ************************/
@@ -143,11 +146,13 @@ public class Warehouse
 		}//end of for loop
 		
 		// store the item in the station
+		robot.moveToSide();
 		stations[stationNum].fillNextSlot(robot.getItemSerialNum(), 
 										  robot.getItemWeight());
 		robot.dropItem();
 		
 		// return robot to pickup station
+		robot.moveToSide();
 		for(int i = aisle; i > 0; i--)
 		{
 			robot.moveBackward(0);
@@ -182,61 +187,6 @@ public class Warehouse
 		// return the correct station for storage
 		return(correctStation);
 	}//end findCorrectStation
-	
-	private int findCorrectStationForRegularItem()
-	{
-		int station = -1;	// initialize to invalid value
-		
-		for(int i = 1; i < stations.length; i++)
-		{
-			// exclude the special storage stations
-			if(i != FREEZER 
-					&& i != SPECIAL_DELIVERY_1 
-					&& i != SPECIAL_DELIVERY_2 
-					&& i != IMMEDIATE_DELIVERY 
-					&& i != FIVE_DAY_STORAGE)
-			{
-
-				// if the station is NOT one of the special storage units
-				// test if the station is already full
-				if(stations[i].getStationIsFull() == false)
-				{
-					// if the station is NOT full
-					// check if there is only one slot remaining
-					if(stations[i].getSlotIsFull(stations[i].getNumSlots()-2) 
-							== true)
-					{
-						// the item weight needs to be checked
-						if(robot.getItemWeight() < 50)
-						{
-							// if the item weight is below 50, 
-							// the item can be placed here
-							// pass the station number
-							station = i;
-							// exit the loop
-							i = stations.length;
-						}
-						else
-						{
-							// if the item weight is above 50, 
-							// the item cannot be placed here 
-							// and another station must be checked
-						}//end item weight check if
-					}
-					else
-					{
-						// there is no potential conflict,
-						// pass the station number
-						station = i;
-						// exit the loop
-						i = stations.length;
-					}//end last slot is only slot left if
-				}//end station is full check if
-			}//end special storage unit check if
-		}//end of for loop
-		
-		return(station);
-	}//end findCorrectStationForRegularItem method
 	
 	private int findCorrectStationForSpecialItem()
 	{
@@ -300,5 +250,83 @@ public class Warehouse
 		// return correct station number
 		return(station);
 	}//end findCorrectStationForSpecialItem method
+	
+	private int findCorrectStationForRegularItem()
+	{
+		int station = -1;	// initialize to invalid value
+		int startPos = -1;	// where the robot should start looking
+		int bound = -1;		// where the robot should stop looking
+		
+		// determine if item serial number is even or odd
+		// and choose to store on left/right accordingly
+		if(robot.getItemSerialNum()%2 == 0)
+		{
+			// the item should be stored on left
+			startPos = 2;
+			bound = stations.length;
+		}
+		else
+		{
+			// the item should be stored on the right
+			startPos = 1;
+			bound = stations.length-1;
+		}//end if
+		
+		// look at the stations for the correct side of the aisle
+		for(int i = startPos; i < bound; i += 2)
+		{
+			// exclude the special storage stations
+			if(i != FREEZER 
+					&& i != SPECIAL_DELIVERY_1 
+					&& i != SPECIAL_DELIVERY_2 
+					&& i != IMMEDIATE_DELIVERY 
+					&& i != FIVE_DAY_STORAGE)
+			{
+
+				// if the station is NOT one of the special storage units
+				// test if the station is already full
+				if(stations[i].getStationIsFull() == false)
+				{
+					// if the station is NOT full
+					// check if there is only one slot remaining
+					if(stations[i].getSlotIsFull(stations[i].getNumSlots()-2) 
+							== true)
+					{
+						// if there is only one slot,
+						// the item weight needs to be checked
+						if(robot.getItemWeight() < 50)
+						{
+							// if the item weight is below 50, 
+							// the item can be placed here
+							// pass the station number
+							station = i;
+							// exit the loop
+							i = stations.length;
+						}
+						else
+						{
+							// if the item weight is above 50, 
+							// the item cannot be placed here 
+							// and another station must be checked
+							System.out.println(stations[i].getName() 
+									+ " has only one slot left. Item #"
+									+ robot.getItemSerialNum() 
+									+ " is too heavy for this slot.");
+						}//end item weight check if
+					}
+					else
+					{
+						// there is no potential conflict,
+						// pass the station number
+						station = i;
+						// exit the loop
+						i = stations.length;
+					}//end last slot is only slot left if
+				}//end station is full check if
+			}//end special storage unit check if
+		}//end of for loop
+		
+		return(station);
+	}//end findCorrectStationForRegularItem method
 	
 }//end Warehouse class

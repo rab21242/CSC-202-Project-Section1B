@@ -12,6 +12,7 @@ public class Robot
 {
 	// ATTRIBUTES
 	private int position;		// current position of robot in its location
+	private boolean isInAisle;	// determines possible lateral movement
 	private boolean hasItem;	// is the robot holding an item?
 	private Item heldItem;		// the item being held by the robot
 	
@@ -23,6 +24,7 @@ public class Robot
 	 */
 	{
 		position = startingPosition;
+		isInAisle = true;
 		hasItem = false;
 		heldItem = new Item();
 	}//end Robot default constructor
@@ -152,5 +154,39 @@ public class Robot
 					+ " warehouse and cannot move any farther BACKWARD.");
 		}
 	}//end moveBackward method
+	
+	public void moveToSide()
+	{
+		boolean isOdd;
+		
+		if(heldItem.getSerialNum()%2 == 0)
+		{
+			isOdd = false;
+		}
+		else
+		{
+			isOdd = true;
+		}
+		
+		if(isInAisle == true)
+		{
+			if(isOdd == false)
+			{
+				System.out.println("The robot has moved into"
+						+ " the station on the LEFT.");
+			}
+			else
+			{
+				System.out.println("The robot has moved into"
+						+ " the station on the RIGHT.");
+			}
+			isInAisle = false;
+		}
+		else
+		{
+			System.out.println("The robot has moved out of the station.");
+			isInAisle = true;
+		}
+	}//end moveToSide method
 	
 }//end Robot class
